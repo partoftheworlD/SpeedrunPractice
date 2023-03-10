@@ -1,0 +1,13 @@
+diff --git a/GamerProfile_original.xml b/GamerProfile.xml
+index 1911bd2..bc13dc5 100644
+--- a/GamerProfile_original.xml
++++ b/GamerProfile.xml
+@@ -6,7 +6,7 @@
+ 		</CustomQuality>
+ 	</RenderProfile>
+ 	<NetworkProfile EnableNatTraversal="1" VoiceChatEnabled="1" OnlineEnginePort="9000" OnlineServicePort="9001" LanHostBroadcastPort="9004" LanClientBroadcastPort="9005" ScanFreePorts="1" ScanPortRange="1000" ScanPortStart="9000" />
+-	<GameProfile Sensitivity="0.9" MouseLookSensitivityX="25" MouseLookSensitivityY="25" MouseInvertX="0" MouseInvertY="0" MouseMenuSensitivity="24" UseMouseSmooth="0" Smoothness="1" EnableMouseDamping="0" SecurityCamTweak="0" SecurityCamSensitivityX="1.5" SecurityCamSensitivityY="1.5" Sprint_UseToggle="1" Stroll_UseToggle="0" Gamepad_vibration="1" UseCompassMiniMap="1" UseRoadSignHilight="1" UseSubtitles="1" UseReticle="1" UseWaypoint="1" UseHintsAndTutorial="1" UsePdaNotification="1" UseMinimap="1" UseDynamicMission="1" UseItemAndRewards="1" UseMissionUpdate="1" UseFelony="1" UseEquipmentAndTools="1" UseAmbx="0" DifficultyLevel="1" IEn="0" IEFOn="0" NeutralFireEnabled="0" FriendlyFireEnabled="0" selGamepadControlScheme="0" CameraSpeedCoefficient="1" CameraSensitivityCoefficient="1" CameraInvertX="0" CameraInvertY="0" selAimAssist="0" selDifficulty="0">
++	<GameProfile Sensitivity="0.9" MouseLookSensitivityX="25" MouseLookSensitivityY="25" MouseInvertX="0" MouseInvertY="0" MouseMenuSensitivity="24" UseMouseAcceleration="0" UseMouseSmooth="0" Smoothness="0" EnableMouseDamping="0" SecurityCamTweak="0" SecurityCamSensitivityX="1.5" SecurityCamSensitivityY="1.5" Sprint_UseToggle="1" Stroll_UseToggle="0" Gamepad_vibration="1" UseCompassMiniMap="1" UseRoadSignHilight="1" UseSubtitles="1" UseReticle="1" UseWaypoint="1" UseHintsAndTutorial="1" UsePdaNotification="1" UseMinimap="1" UseDynamicMission="1" UseItemAndRewards="1" UseMissionUpdate="1" UseFelony="1" UseEquipmentAndTools="1" UseAmbx="0" DifficultyLevel="1" IEn="0" IEFOn="0" NeutralFireEnabled="0" FriendlyFireEnabled="0" selGamepadControlScheme="0" CameraSpeedCoefficient="1" CameraSensitivityCoefficient="1" CameraInvertX="0" CameraInvertY="0" selAimAssist="-" selDifficulty="0">
+ 		<FireConfig QualitySetting="VeryHigh" />
+ 		<AutoConsoleCommands />
+ 	</GameProfile>
