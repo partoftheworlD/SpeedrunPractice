@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"ammo"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AlanWake.exe
+  Version: 
+  Date   : 2023-08-24
+  Author : p
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(ammo,AlanWake.exe,8B 54 86 20 3B D1) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi+eax*4+20],#99
+  mov edx,[esi+eax*4+20]
+  cmp edx,ecx
+  jmp return
+
+ammo:
+  jmp newmem
+  nop
+return:
+registersymbol(ammo)
+
+[DISABLE]
+
+ammo:
+  db 8B 54 86 20 3B D1
+
+unregistersymbol(ammo)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: AlanWake.exe+1429FA
+
+AlanWake.exe+1429E0: 74 10           - je AlanWake.exe+1429F2
+AlanWake.exe+1429E2: 33 C9           - xor ecx,ecx
+AlanWake.exe+1429E4: 83 78 28 01     - cmp dword ptr [eax+28],01
+AlanWake.exe+1429E8: 0F 9E C1        - setle cl
+AlanWake.exe+1429EB: 83 C1 02        - add ecx,02
+AlanWake.exe+1429EE: 8B C1           - mov eax,ecx
+AlanWake.exe+1429F0: EB 02           - jmp AlanWake.exe+1429F4
+AlanWake.exe+1429F2: 33 C0           - xor eax,eax
+AlanWake.exe+1429F4: 8B 16           - mov edx,[esi]
+AlanWake.exe+1429F6: 8B 4C 96 14     - mov ecx,[esi+edx*4+14]
+// ---------- INJECTING HERE ----------
+AlanWake.exe+1429FA: 8B 54 86 20     - mov edx,[esi+eax*4+20]
+// ---------- DONE INJECTING  ----------
+AlanWake.exe+1429FE: 3B D1           - cmp edx,ecx
+AlanWake.exe+142A00: 7E 02           - jle AlanWake.exe+142A04
+AlanWake.exe+142A02: 8B CA           - mov ecx,edx
+AlanWake.exe+142A04: 89 4C 86 20     - mov [esi+eax*4+20],ecx
+AlanWake.exe+142A08: E8 D3 78 06 00  - call AlanWake.exe+1AA2E0
+AlanWake.exe+142A0D: 85 C0           - test eax,eax
+AlanWake.exe+142A0F: 74 19           - je AlanWake.exe+142A2A
+AlanWake.exe+142A11: 8B 4E 34        - mov ecx,[esi+34]
+AlanWake.exe+142A14: E8 E7 0A F8 FF  - call AlanWake.exe+C3500
+AlanWake.exe+142A19: 84 C0           - test al,al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"nades"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AlanWake.exe
+  Version: 
+  Date   : 2023-08-24
+  Author : p
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(nades,AlanWake.exe,8B 44 8E 0C 8D 4C 8E 0C) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi+ecx*4+0C],#100
+  mov eax,[esi+ecx*4+0C]
+  lea ecx,[esi+ecx*4+0C]
+  jmp return
+
+nades:
+  jmp newmem
+  nop 3
+return:
+registersymbol(nades)
+
+[DISABLE]
+
+nades:
+  db 8B 44 8E 0C 8D 4C 8E 0C
+
+unregistersymbol(nades)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: AlanWake.exe+15336E
+
+AlanWake.exe+153355: 74 15           - je AlanWake.exe+15336C
+AlanWake.exe+153357: 8B 06           - mov eax,[esi]
+AlanWake.exe+153359: 8D 4C 86 0C     - lea ecx,[esi+eax*4+0C]
+AlanWake.exe+15335D: 8B 01           - mov eax,[ecx]
+AlanWake.exe+15335F: 48              - dec eax
+AlanWake.exe+153360: 83 F8 01        - cmp eax,01
+AlanWake.exe+153363: 7D 1F           - jnl AlanWake.exe+153384
+AlanWake.exe+153365: B8 01 00 00 00  - mov eax,00000001
+AlanWake.exe+15336A: EB 18           - jmp AlanWake.exe+153384
+AlanWake.exe+15336C: 8B 0E           - mov ecx,[esi]
+// ---------- INJECTING HERE ----------
+AlanWake.exe+15336E: 8B 44 8E 0C     - mov eax,[esi+ecx*4+0C]
+// ---------- DONE INJECTING  ----------
+AlanWake.exe+153372: 8D 4C 8E 0C     - lea ecx,[esi+ecx*4+0C]
+AlanWake.exe+153376: 83 E8 01        - sub eax,01
+AlanWake.exe+153379: BA 00 00 00 00  - mov edx,00000000
+AlanWake.exe+15337E: 0F 98 C2        - sets dl
+AlanWake.exe+153381: 4A              - dec edx
+AlanWake.exe+153382: 23 C2           - and eax,edx
+AlanWake.exe+153384: 89 01           - mov [ecx],eax
+AlanWake.exe+153386: 8B 06           - mov eax,[esi]
+AlanWake.exe+153388: 83 7C 86 0C 00  - cmp dword ptr [esi+eax*4+0C],00
+AlanWake.exe+15338D: 75 0F           - jne AlanWake.exe+15339E
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>32</ID>
+      <Description>"Stamina"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AlanWake.exe
+  Version: 
+  Date   : 2023-08-30
+  Author : p
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(stamina,AlanWake.exe,D9 56 7C D9 E8 D9 96) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  fld1
+  fst dword ptr [esi+7C]
+  fld1 
+  jmp return
+
+stamina:
+  jmp newmem
+return:
+registersymbol(stamina)
+
+[DISABLE]
+
+stamina:
+  db D9 56 7C D9 E8
+
+unregistersymbol(stamina)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: AlanWake.exe+CC379
+
+AlanWake.exe+CC353: D8 4C 24 10        - fmul dword ptr [esp+10]
+AlanWake.exe+CC357: DC 6C 24 1C        - fsubr qword ptr [esp+1C]
+AlanWake.exe+CC35B: D9 5C 24 10        - fstp dword ptr [esp+10]
+AlanWake.exe+CC35F: D9 44 24 10        - fld dword ptr [esp+10]
+AlanWake.exe+CC363: D9 5C 24 04        - fstp dword ptr [esp+04]
+AlanWake.exe+CC367: D9 EE              - fldz 
+AlanWake.exe+CC369: D9 1C 24           - fstp dword ptr [esp]
+AlanWake.exe+CC36C: E8 5F D3 F3 FF     - call AlanWake.exe+96D0
+AlanWake.exe+CC371: D9 5C 24 08        - fstp dword ptr [esp+08]
+AlanWake.exe+CC375: D9 44 24 08        - fld dword ptr [esp+08]
+// ---------- INJECTING HERE ----------
+AlanWake.exe+CC379: D9 56 7C           - fst dword ptr [esi+7C]
+// ---------- DONE INJECTING  ----------
+AlanWake.exe+CC37C: D9 E8              - fld1 
+AlanWake.exe+CC37E: D9 96 84 00 00 00  - fst dword ptr [esi+00000084]
+AlanWake.exe+CC384: D9 C1              - fld st(1)
+AlanWake.exe+CC386: DD 05 E0 19 63 00  - fld qword ptr [AlanWake.exe+2319E0]
+AlanWake.exe+CC38C: DC C9              - fmul st(1),st(0)
+AlanWake.exe+CC38E: D9 C9              - fxch st(1)
+AlanWake.exe+CC390: DC 0D 28 C8 63 00  - fmul qword ptr [AlanWake.exe+23C828]
+AlanWake.exe+CC396: DD 05 20 C8 63 00  - fld qword ptr [AlanWake.exe+23C820]
+AlanWake.exe+CC39C: DC C1              - fadd st(1),st(0)
+AlanWake.exe+CC39E: D9 C9              - fxch st(1)
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>59</ID>
+      <Description>"Debug"</Description>
+      <Options moHideChildren="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AlanWake.exe
+  Version: 
+  Date   : 2023-09-02
+  Author : partoftheworlD
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(DebugPage,AlanWake.exe,A1 ? ? ? ? 8A 80 ? ? ? ? 8B 3D ? ? ? ? )
+aobscanmodule(LoadingMode,AlanWake.exe,89 2D ? ? ? ? 3B C7)
+aobscanmodule(Wireframe,AlanWake.exe,8B 15 ? ? ? ? 52 6A 00 6A 00 68 ? ? ? ? FF D7)
+aobscanmodule(AimLine,AlanWake.exe,80 3D ? ? ? ? ? 74 11 8B 0D ? ? ? ? 51 8B D5 8B CB FF 15 ? ? ? ?)
+aobscanmodule(Spawnpoint,AlanWake.exe,80 3D ? ? ? ? ? 74 40 68 ? ? ? ? FF 15 ? ? ? ? 83 C4 04 EB 30)
+
+registersymbol(DebugPage)
+registersymbol(LoadingMode)
+registersymbol(Wireframe)
+registersymbol(AimLine)
+registersymbol(Spawnpoint)
+
+[DISABLE]
+unregistersymbol(DebugPage)
+unregistersymbol(LoadingMode)
+unregistersymbol(Wireframe)
+unregistersymbol(AimLine)
+unregistersymbol(Spawnpoint)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Debug unlock"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[LoadingMode+2]</Address>
+          <Offsets>
+            <Offset>c</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"Debug triggers"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>D7</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>62</ID>
+          <Description>"Debug death trigger"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>DE</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63</ID>
+          <Description>"Debug invisible walls"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>DD</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64</ID>
+          <Description>"Debug unkw0"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>DA</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>65</ID>
+          <Description>"Debug item names"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>CC</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>66</ID>
+          <Description>"Debug hitboxes?"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>CD</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>67</ID>
+          <Description>"Debug crosshair_distance"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>E7</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>68</ID>
+          <Description>"Debug fps_graph"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>EC</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>69</ID>
+          <Description>"Debug ingame timer"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>D5</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>70</ID>
+          <Description>"Debug unknw"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>DF</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>71</ID>
+          <Description>"Debug landscape"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>E0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>72</ID>
+          <Description>"Debug ??? (Ray check collision inside trigger)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>FE</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>73</ID>
+          <Description>"Debug ???"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>CD</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Wireframe"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[Wireframe+2]</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"Debug areas"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>29</ID>
+          <Description>"Stamina Bar"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>[DebugPage+1]</Address>
+          <Offsets>
+            <Offset>E1</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>36</ID>
+          <Description>"Aim line"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>AimLine+2</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>58</ID>
+          <Description>"Spawnpoint:Debug Spawning"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Spawnpoint+2</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>
