@@ -5,13 +5,7 @@
       <ID>2</ID>
       <Description>"ammo"</Description>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : AlanWake.exe
-  Version: 
-  Date   : 2023-08-24
-  Author : p
-
-  This script does blah blah blah
-}
+      <AssemblerScript>
 
 [ENABLE]
 
@@ -43,47 +37,13 @@ ammo:
 unregistersymbol(ammo)
 dealloc(newmem)
 
-{
-// ORIGINAL CODE - INJECTION POINT: AlanWake.exe+1429FA
-
-AlanWake.exe+1429E0: 74 10           - je AlanWake.exe+1429F2
-AlanWake.exe+1429E2: 33 C9           - xor ecx,ecx
-AlanWake.exe+1429E4: 83 78 28 01     - cmp dword ptr [eax+28],01
-AlanWake.exe+1429E8: 0F 9E C1        - setle cl
-AlanWake.exe+1429EB: 83 C1 02        - add ecx,02
-AlanWake.exe+1429EE: 8B C1           - mov eax,ecx
-AlanWake.exe+1429F0: EB 02           - jmp AlanWake.exe+1429F4
-AlanWake.exe+1429F2: 33 C0           - xor eax,eax
-AlanWake.exe+1429F4: 8B 16           - mov edx,[esi]
-AlanWake.exe+1429F6: 8B 4C 96 14     - mov ecx,[esi+edx*4+14]
-// ---------- INJECTING HERE ----------
-AlanWake.exe+1429FA: 8B 54 86 20     - mov edx,[esi+eax*4+20]
-// ---------- DONE INJECTING  ----------
-AlanWake.exe+1429FE: 3B D1           - cmp edx,ecx
-AlanWake.exe+142A00: 7E 02           - jle AlanWake.exe+142A04
-AlanWake.exe+142A02: 8B CA           - mov ecx,edx
-AlanWake.exe+142A04: 89 4C 86 20     - mov [esi+eax*4+20],ecx
-AlanWake.exe+142A08: E8 D3 78 06 00  - call AlanWake.exe+1AA2E0
-AlanWake.exe+142A0D: 85 C0           - test eax,eax
-AlanWake.exe+142A0F: 74 19           - je AlanWake.exe+142A2A
-AlanWake.exe+142A11: 8B 4E 34        - mov ecx,[esi+34]
-AlanWake.exe+142A14: E8 E7 0A F8 FF  - call AlanWake.exe+C3500
-AlanWake.exe+142A19: 84 C0           - test al,al
-}
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
       <ID>5</ID>
       <Description>"nades"</Description>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : AlanWake.exe
-  Version: 
-  Date   : 2023-08-24
-  Author : p
-
-  This script does blah blah blah
-}
-
+      <AssemblerScript>
 [ENABLE]
 
 aobscanmodule(nades,AlanWake.exe,8B 44 8E 0C 8D 4C 8E 0C) // should be unique
@@ -113,47 +73,13 @@ nades:
 
 unregistersymbol(nades)
 dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: AlanWake.exe+15336E
-
-AlanWake.exe+153355: 74 15           - je AlanWake.exe+15336C
-AlanWake.exe+153357: 8B 06           - mov eax,[esi]
-AlanWake.exe+153359: 8D 4C 86 0C     - lea ecx,[esi+eax*4+0C]
-AlanWake.exe+15335D: 8B 01           - mov eax,[ecx]
-AlanWake.exe+15335F: 48              - dec eax
-AlanWake.exe+153360: 83 F8 01        - cmp eax,01
-AlanWake.exe+153363: 7D 1F           - jnl AlanWake.exe+153384
-AlanWake.exe+153365: B8 01 00 00 00  - mov eax,00000001
-AlanWake.exe+15336A: EB 18           - jmp AlanWake.exe+153384
-AlanWake.exe+15336C: 8B 0E           - mov ecx,[esi]
-// ---------- INJECTING HERE ----------
-AlanWake.exe+15336E: 8B 44 8E 0C     - mov eax,[esi+ecx*4+0C]
-// ---------- DONE INJECTING  ----------
-AlanWake.exe+153372: 8D 4C 8E 0C     - lea ecx,[esi+ecx*4+0C]
-AlanWake.exe+153376: 83 E8 01        - sub eax,01
-AlanWake.exe+153379: BA 00 00 00 00  - mov edx,00000000
-AlanWake.exe+15337E: 0F 98 C2        - sets dl
-AlanWake.exe+153381: 4A              - dec edx
-AlanWake.exe+153382: 23 C2           - and eax,edx
-AlanWake.exe+153384: 89 01           - mov [ecx],eax
-AlanWake.exe+153386: 8B 06           - mov eax,[esi]
-AlanWake.exe+153388: 83 7C 86 0C 00  - cmp dword ptr [esi+eax*4+0C],00
-AlanWake.exe+15338D: 75 0F           - jne AlanWake.exe+15339E
-}
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
       <ID>32</ID>
       <Description>"Stamina"</Description>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : AlanWake.exe
-  Version: 
-  Date   : 2023-08-30
-  Author : p
-
-  This script does blah blah blah
-}
+      <AssemblerScript>
 
 [ENABLE]
 
@@ -183,34 +109,6 @@ stamina:
 
 unregistersymbol(stamina)
 dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: AlanWake.exe+CC379
-
-AlanWake.exe+CC353: D8 4C 24 10        - fmul dword ptr [esp+10]
-AlanWake.exe+CC357: DC 6C 24 1C        - fsubr qword ptr [esp+1C]
-AlanWake.exe+CC35B: D9 5C 24 10        - fstp dword ptr [esp+10]
-AlanWake.exe+CC35F: D9 44 24 10        - fld dword ptr [esp+10]
-AlanWake.exe+CC363: D9 5C 24 04        - fstp dword ptr [esp+04]
-AlanWake.exe+CC367: D9 EE              - fldz 
-AlanWake.exe+CC369: D9 1C 24           - fstp dword ptr [esp]
-AlanWake.exe+CC36C: E8 5F D3 F3 FF     - call AlanWake.exe+96D0
-AlanWake.exe+CC371: D9 5C 24 08        - fstp dword ptr [esp+08]
-AlanWake.exe+CC375: D9 44 24 08        - fld dword ptr [esp+08]
-// ---------- INJECTING HERE ----------
-AlanWake.exe+CC379: D9 56 7C           - fst dword ptr [esi+7C]
-// ---------- DONE INJECTING  ----------
-AlanWake.exe+CC37C: D9 E8              - fld1 
-AlanWake.exe+CC37E: D9 96 84 00 00 00  - fst dword ptr [esi+00000084]
-AlanWake.exe+CC384: D9 C1              - fld st(1)
-AlanWake.exe+CC386: DD 05 E0 19 63 00  - fld qword ptr [AlanWake.exe+2319E0]
-AlanWake.exe+CC38C: DC C9              - fmul st(1),st(0)
-AlanWake.exe+CC38E: D9 C9              - fxch st(1)
-AlanWake.exe+CC390: DC 0D 28 C8 63 00  - fmul qword ptr [AlanWake.exe+23C828]
-AlanWake.exe+CC396: DD 05 20 C8 63 00  - fld qword ptr [AlanWake.exe+23C820]
-AlanWake.exe+CC39C: DC C1              - fadd st(1),st(0)
-AlanWake.exe+CC39E: D9 C9              - fxch st(1)
-}
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
@@ -222,8 +120,6 @@ AlanWake.exe+CC39E: D9 C9              - fxch st(1)
   Version: 
   Date   : 2023-09-02
   Author : partoftheworlD
-
-  This script does blah blah blah
 }
 
 [ENABLE]
