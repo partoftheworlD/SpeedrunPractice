@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="31">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"pointerscan result"</Description>
+      <LastState Value="13549196" RealAddress="07243AC4"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"prototypeenginef.dll"+01316208</Address>
+      <Offsets>
+        <Offset>4</Offset>
+        <Offset>30</Offset>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>38</Offset>
+        <Offset>58</Offset>
+        <Offset>30</Offset>
+        <Offset>40</Offset>
+        <Offset>3C</Offset>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"pointerscan result"</Description>
+      <LastState Value="13549196" RealAddress="07243AC4"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"prototypeenginef.dll"+01316208</Address>
+      <Offsets>
+        <Offset>4</Offset>
+        <Offset>30</Offset>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>18</Offset>
+        <Offset>70</Offset>
+        <Offset>30</Offset>
+        <Offset>40</Offset>
+        <Offset>3C</Offset>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"pointerscan result"</Description>
+      <LastState Value="13549196" RealAddress="07243AC4"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"prototypeenginef.dll"+01316208</Address>
+      <Offsets>
+        <Offset>4</Offset>
+        <Offset>30</Offset>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>18</Offset>
+        <Offset>30</Offset>
+        <Offset>14</Offset>
+        <Offset>44</Offset>
+        <Offset>3C</Offset>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"pointerscan result"</Description>
+      <LastState Value="13549196" RealAddress="07243AC4"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"prototypeenginef.dll"+01316208</Address>
+      <Offsets>
+        <Offset>4</Offset>
+        <Offset>30</Offset>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>38</Offset>
+        <Offset>18</Offset>
+        <Offset>14</Offset>
+        <Offset>44</Offset>
+        <Offset>3C</Offset>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"pointerscan result"</Description>
+      <LastState Value="13549196" RealAddress="07243AC4"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"prototypeenginef.dll"+01316208</Address>
+      <Offsets>
+        <Offset>4</Offset>
+        <Offset>30</Offset>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>0</Offset>
+        <Offset>30</Offset>
+        <Offset>18</Offset>
+        <Offset>54</Offset>
+        <Offset>3C</Offset>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"pointerscan result"</Description>
+      <LastState Value="13549196" RealAddress="07243AC4"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"prototypeenginef.dll"+01316208</Address>
+      <Offsets>
+        <Offset>4</Offset>
+        <Offset>30</Offset>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>0</Offset>
+        <Offset>10</Offset>
+        <Offset>30</Offset>
+        <Offset>54</Offset>
+        <Offset>3C</Offset>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

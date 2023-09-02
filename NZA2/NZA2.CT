@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"UnlimitedAmmo"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : NZA2.exe
+  Version: 
+  Date   : 2020-11-23
+  Author : Alexander
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Ammo,NZA2.exe,33 D7 89 56 04) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov edi, #99
+  xor edx,edi
+  mov [esi+04],edx
+  jmp return
+
+Ammo:
+  jmp newmem
+return:
+registersymbol(Ammo)
+
+[DISABLE]
+
+Ammo:
+  db 33 D7 89 56 04
+
+unregistersymbol(Ammo)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: NZA2.exe+36F166
+
+NZA2.exe+36F150: 8B 4E 04        - mov ecx,[esi+04]
+NZA2.exe+36F153: 33 CE           - xor ecx,esi
+NZA2.exe+36F155: 89 75 F8        - mov [ebp-08],esi
+NZA2.exe+36F158: 3B C8           - cmp ecx,eax
+NZA2.exe+36F15A: 76 40           - jna NZA2.exe+36F19C
+NZA2.exe+36F15C: 57              - push edi
+NZA2.exe+36F15D: 8B 7E 04        - mov edi,[esi+04]
+NZA2.exe+36F160: 33 FE           - xor edi,esi
+NZA2.exe+36F162: 2B F8           - sub edi,eax
+NZA2.exe+36F164: 8B D6           - mov edx,esi
+// ---------- INJECTING HERE ----------
+NZA2.exe+36F166: 33 D7           - xor edx,edi
+// ---------- DONE INJECTING  ----------
+NZA2.exe+36F168: 89 56 04        - mov [esi+04],edx
+NZA2.exe+36F16B: E8 A0 02 D5 FF  - call NZA2.exe+BF410
+NZA2.exe+36F170: 8B 00           - mov eax,[eax]
+NZA2.exe+36F172: 33 C7           - xor eax,edi
+NZA2.exe+36F174: 89 45 FC        - mov [ebp-04],eax
+NZA2.exe+36F177: E8 E4 C2 E3 FF  - call NZA2.exe+1AB460
+NZA2.exe+36F17C: 8D 4D F8        - lea ecx,[ebp-08]
+NZA2.exe+36F17F: 51              - push ecx
+NZA2.exe+36F180: 8B 48 08        - mov ecx,[eax+08]
+NZA2.exe+36F183: 8D 50 04        - lea edx,[eax+04]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"QuickSave"</Description>
+      <LastState Value="0" RealAddress="00C70B22"/>
+      <VariableType>Byte</VariableType>
+      <Address>NZA2.exe+7A0B22</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"QuickLoad"</Description>
+      <LastState Value="0" RealAddress="00C70B21"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Byte</VariableType>
+      <Address>NZA2.exe+7A0B21</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>117</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
