@@ -5,9 +5,7 @@
       <ID>2</ID>
       <Description>"ammo"</Description>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>
-
-[ENABLE]
+      <AssemblerScript>[ENABLE]
 
 aobscanmodule(ammo,AlanWake.exe,8B 54 86 20 3B D1) // should be unique
 alloc(newmem,$1000)
@@ -43,8 +41,7 @@ dealloc(newmem)
       <ID>5</ID>
       <Description>"nades"</Description>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>
-[ENABLE]
+      <AssemblerScript>[ENABLE]
 
 aobscanmodule(nades,AlanWake.exe,8B 44 8E 0C 8D 4C 8E 0C) // should be unique
 alloc(newmem,$1000)
@@ -79,9 +76,7 @@ dealloc(newmem)
       <ID>32</ID>
       <Description>"Stamina"</Description>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>
-
-[ENABLE]
+      <AssemblerScript>[ENABLE]
 
 aobscanmodule(stamina,AlanWake.exe,D9 56 7C D9 E8 D9 96) // should be unique
 alloc(newmem,$1000)
@@ -129,12 +124,14 @@ aobscanmodule(LoadingMode,AlanWake.exe,89 2D ? ? ? ? 3B C7)
 aobscanmodule(Wireframe,AlanWake.exe,8B 15 ? ? ? ? 52 6A 00 6A 00 68 ? ? ? ? FF D7)
 aobscanmodule(AimLine,AlanWake.exe,80 3D ? ? ? ? ? 74 11 8B 0D ? ? ? ? 51 8B D5 8B CB FF 15 ? ? ? ?)
 aobscanmodule(Spawnpoint,AlanWake.exe,80 3D ? ? ? ? ? 74 40 68 ? ? ? ? FF 15 ? ? ? ? 83 C4 04 EB 30)
+aobscanmodule(VideoMode,AlanWake.exe,89 35 ? ? ? ? 8D BE ? ? ? ? BB ? ? ? ? EB 08)
 
 registersymbol(DebugPage)
 registersymbol(LoadingMode)
 registersymbol(Wireframe)
 registersymbol(AimLine)
 registersymbol(Spawnpoint)
+registersymbol(VideoMode)
 
 [DISABLE]
 unregistersymbol(DebugPage)
@@ -142,6 +139,7 @@ unregistersymbol(LoadingMode)
 unregistersymbol(Wireframe)
 unregistersymbol(AimLine)
 unregistersymbol(Spawnpoint)
+unregistersymbol(VideoMode)
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -332,6 +330,16 @@ unregistersymbol(Spawnpoint)
           <Address>Spawnpoint+2</Address>
           <Offsets>
             <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>77</ID>
+          <Description>"CutScene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>[VideoMode + 2]</Address>
+          <Offsets>
+            <Offset>0x5C8</Offset>
           </Offsets>
         </CheatEntry>
       </CheatEntries>
