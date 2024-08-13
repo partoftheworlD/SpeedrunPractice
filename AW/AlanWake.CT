@@ -125,6 +125,7 @@ aobscanmodule(Wireframe,AlanWake.exe,8B 15 ? ? ? ? 52 6A 00 6A 00 68 ? ? ? ? FF 
 aobscanmodule(AimLine,AlanWake.exe,80 3D ? ? ? ? ? 74 11 8B 0D ? ? ? ? 51 8B D5 8B CB FF 15 ? ? ? ?)
 aobscanmodule(Spawnpoint,AlanWake.exe,80 3D ? ? ? ? ? 74 40 68 ? ? ? ? FF 15 ? ? ? ? 83 C4 04 EB 30)
 aobscanmodule(VideoMode,AlanWake.exe,89 35 ? ? ? ? 8D BE ? ? ? ? BB ? ? ? ? EB 08)
+aobscanmodule(TimerManager,AlanWake.exe,68 ? ? ? ?  6A ? 51 C7 05)
 
 registersymbol(DebugPage)
 registersymbol(LoadingMode)
@@ -132,6 +133,7 @@ registersymbol(Wireframe)
 registersymbol(AimLine)
 registersymbol(Spawnpoint)
 registersymbol(VideoMode)
+registersymbol(TimerManager)
 
 [DISABLE]
 unregistersymbol(DebugPage)
@@ -140,6 +142,7 @@ unregistersymbol(Wireframe)
 unregistersymbol(AimLine)
 unregistersymbol(Spawnpoint)
 unregistersymbol(VideoMode)
+unregistersymbol(TimerManager)
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -340,6 +343,17 @@ unregistersymbol(VideoMode)
           <Address>[VideoMode + 2]</Address>
           <Offsets>
             <Offset>0x5C8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78</ID>
+          <Description>"Ingame Timer"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>TimerManager+A</Address>
+          <Offsets>
+            <Offset>8+3C</Offset>
+            <Offset>0</Offset>
           </Offsets>
         </CheatEntry>
       </CheatEntries>
