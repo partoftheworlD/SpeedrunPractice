@@ -3,7 +3,7 @@
   <CheatEntries>
     <CheatEntry>
       <ID>2</ID>
-      <Description>"money/exp"</Description>
+      <Description>"money"</Description>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : Watch_Dogs
   Version: 
