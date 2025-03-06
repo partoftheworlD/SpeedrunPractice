@@ -4,7 +4,6 @@
     <CheatEntry>
       <ID>2</ID>
       <Description>"money/exp"</Description>
-      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : Watch_Dogs
   Version: 
@@ -30,7 +29,6 @@ code:
   mov rax, #9999999
   add, rax, esi
   mov [r12+rdi*4+0000009C], rax
-  mov [r12+rdi*4+000000AE], rax
   pop rax
   sub [r12+rdi*4+0000009C],esi
   lea rdx,[Disrupt_b64.dll+2E5DC68]
@@ -77,6 +75,80 @@ Disrupt_b64.dll+140347A: 49 8B CC                 - mov rcx,r12
 Disrupt_b64.dll+140347D: 4C 8B C8                 - mov r9,rax
 Disrupt_b64.dll+1403480: 44 8B C6                 - mov r8d,esi
 Disrupt_b64.dll+1403483: C6 44 24 28 01           - mov byte ptr [rsp+28],01
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"expr"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Watch_Dogs
+  Version: 
+  Date   : 2025-03-06
+  Author : p
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(expr,Disrupt_b64.dll,8B 80 A8 00 00 00 4C 89 A4 24 40 01 00 00 89 85 80 00 00 00 48 8B 86 20 0B 00 00 48 8D 15 64 A9 D9 01) // should be unique
+alloc(newmem,$1000,expr)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rax+000000A8], #127500
+  mov eax,[rax+000000A8]
+  mov [rsp+00000140],r12
+  mov [rbp+00000080],eax
+  mov rax,[rsi+00000B20]
+  lea rdx,[Disrupt_b64.dll+306EF80]
+  jmp return
+
+expr:
+  jmp newmem
+  nop 1D
+return:
+registersymbol(expr)
+
+[DISABLE]
+
+expr:
+  db 8B 80 A8 00 00 00 4C 89 A4 24 40 01 00 00 89 85 80 00 00 00 48 8B 86 20 0B 00 00 48 8D 15 64 A9 D9 01
+
+unregistersymbol(expr)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Disrupt_b64.dll+12D45FA
+
+Disrupt_b64.dll+12D45CF: 8B C7                    - mov eax,edi
+Disrupt_b64.dll+12D45D1: F0 41 0F C1 03           - lock xadd [r11],eax
+Disrupt_b64.dll+12D45D6: FF C8                    - dec eax
+Disrupt_b64.dll+12D45D8: 75 0A                    - jne Disrupt_b64.dll+12D45E4
+Disrupt_b64.dll+12D45DA: 48 8B 4C 24 50           - mov rcx,[rsp+50]
+Disrupt_b64.dll+12D45DF: E8 9C B0 E7 FE           - call Disrupt_b64.dll+14F680
+Disrupt_b64.dll+12D45E4: 48 8B 05 F5 72 90 02     - mov rax,[Disrupt_b64.dll+3BDB8E0]
+Disrupt_b64.dll+12D45EB: 48 85 C0                 - test rax,rax
+Disrupt_b64.dll+12D45EE: 0F 84 E2 02 00 00        - je Disrupt_b64.dll+12D48D6
+Disrupt_b64.dll+12D45F4: 8B 98 EC 00 00 00        - mov ebx,[rax+000000EC]
+// ---------- INJECTING HERE ----------
+Disrupt_b64.dll+12D45FA: 8B 80 A8 00 00 00        - mov eax,[rax+000000A8]
+// ---------- DONE INJECTING  ----------
+Disrupt_b64.dll+12D4600: 4C 89 A4 24 40 01 00 00  - mov [rsp+00000140],r12
+Disrupt_b64.dll+12D4608: 89 85 80 00 00 00        - mov [rbp+00000080],eax
+Disrupt_b64.dll+12D460E: 48 8B 86 20 0B 00 00     - mov rax,[rsi+00000B20]
+Disrupt_b64.dll+12D4615: 48 8D 15 64 A9 D9 01     - lea rdx,[Disrupt_b64.dll+306EF80]
+Disrupt_b64.dll+12D461C: 44 8B 60 78              - mov r12d,[rax+78]
+Disrupt_b64.dll+12D4620: 48 8D 4C 24 28           - lea rcx,[rsp+28]
+Disrupt_b64.dll+12D4625: 4C 89 AC 24 38 01 00 00  - mov [rsp+00000138],r13
+Disrupt_b64.dll+12D462D: 41 FF CC                 - dec r12d
+Disrupt_b64.dll+12D4630: 4C 89 B4 24 30 01 00 00  - mov [rsp+00000130],r14
+Disrupt_b64.dll+12D4638: 89 5D 70                 - mov [rbp+70],ebx
 }
 </AssemblerScript>
     </CheatEntry>
