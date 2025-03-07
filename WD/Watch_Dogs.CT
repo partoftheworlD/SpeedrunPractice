@@ -152,6 +152,76 @@ Disrupt_b64.dll+12D4638: 89 5D 70                 - mov [rbp+70],ebx
 }
 </AssemblerScript>
     </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"items"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Watch_Dogs
+  Version: 
+  Date   : 2025-03-08
+  Author : p
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(items,Disrupt_b64.dll,89 42 0C B0 01 48 8B) // should be unique
+alloc(newmem,$1000,items)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov eax, #999
+  mov [rdx+0C],eax
+  mov al,01
+  jmp return
+
+items:
+  jmp newmem
+return:
+registersymbol(items)
+
+[DISABLE]
+
+items:
+  db 89 42 0C B0 01
+
+unregistersymbol(items)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Disrupt_b64.dll+EB167D
+
+Disrupt_b64.dll+EB1664: 48 8B 74 24 48  - mov rsi,[rsp+48]
+Disrupt_b64.dll+EB1669: 48 83 C4 20     - add rsp,20
+Disrupt_b64.dll+EB166D: 5F              - pop rdi
+Disrupt_b64.dll+EB166E: C3              - ret 
+Disrupt_b64.dll+EB166F: 8B 42 0C        - mov eax,[rdx+0C]
+Disrupt_b64.dll+EB1672: 83 F8 FF        - cmp eax,-01
+Disrupt_b64.dll+EB1675: 74 E6           - je Disrupt_b64.dll+EB165D
+Disrupt_b64.dll+EB1677: 3B C7           - cmp eax,edi
+Disrupt_b64.dll+EB1679: 76 17           - jna Disrupt_b64.dll+EB1692
+Disrupt_b64.dll+EB167B: 2B C7           - sub eax,edi
+// ---------- INJECTING HERE ----------
+Disrupt_b64.dll+EB167D: 89 42 0C        - mov [rdx+0C],eax
+// ---------- DONE INJECTING  ----------
+Disrupt_b64.dll+EB1680: B0 01           - mov al,01
+Disrupt_b64.dll+EB1682: 48 8B 5C 24 40  - mov rbx,[rsp+40]
+Disrupt_b64.dll+EB1687: 48 8B 74 24 48  - mov rsi,[rsp+48]
+Disrupt_b64.dll+EB168C: 48 83 C4 20     - add rsp,20
+Disrupt_b64.dll+EB1690: 5F              - pop rdi
+Disrupt_b64.dll+EB1691: C3              - ret 
+Disrupt_b64.dll+EB1692: 48 8B 5C 24 40  - mov rbx,[rsp+40]
+Disrupt_b64.dll+EB1697: 48 8B 74 24 48  - mov rsi,[rsp+48]
+Disrupt_b64.dll+EB169C: 33 C0           - xor eax,eax
+Disrupt_b64.dll+EB169E: 89 42 0C        - mov [rdx+0C],eax
+}
+</AssemblerScript>
+    </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>
 </CheatTable>
